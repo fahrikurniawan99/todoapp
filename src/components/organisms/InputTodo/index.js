@@ -9,7 +9,7 @@ function index() {
       </h1>
       <Input />
       <div className="flex justify-center items-center mt-3">
-        <Button color="indigo-500" ring="indigo-300">Add Todo</Button>
+        <Button>Add Todo</Button>
       </div>
     </>
   );
