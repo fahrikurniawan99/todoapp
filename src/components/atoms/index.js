@@ -1,4 +1,4 @@
 import Input from './Input'
-import * as Button from './Button'
+import Button from './Button'
 
 export {Input, Button}
