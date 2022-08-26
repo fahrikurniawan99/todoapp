@@ -1,3 +1,4 @@
 import Navbar from './Navbar'
+import InputTodo from './InputTodo'
 
-export {Navbar}
+export {Navbar, InputTodo}
