@@ -2,13 +2,13 @@ import React from "react";
 
 function index() {
   return (
-    <div className="bg-gray-200 w-full shadow-lg rounded-sm px-3 pb-9 pt-5 relative space-y-5">
-      <h1 className="absolute bg-gray-200 -top-3 left-0 font-bold text-gray-700 px-4 py-1 rounded-lg">
+    <div className="bg-gray-100 w-full shadow-lg rounded-sm px-3 pb-9 pt-5 relative space-y-5">
+      <h1 className="absolute bg-gray-100 -top-3 left-0 font-bold text-gray-600 px-4 py-1 rounded-lg">
         Todo List
       </h1>
       <div className="bg-white w-full px-4 text-md py-3 flex justify-between items-center shadow-xl rounded-md">
         <input type="checkbox" name="" id="" />
-        <h1 className="font-bold text-gray-700">Olahraga</h1>
+        <h1 className="font-bold text-gray-600">Olahraga</h1>
         <div className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ function index() {
       </div>
       <div className="bg-white w-full px-4 text-md py-3 flex justify-between items-center shadow-xl rounded-md">
         <input type="checkbox" name="" id="" />
-        <h1 className="font-bold text-gray-700">Olahraga</h1>
+        <h1 className="font-bold text-gray-600">Olahraga</h1>
         <div className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ function index() {
       </div>
       <div className="bg-white w-full px-4 text-md py-3 flex justify-between items-center shadow-xl rounded-md">
         <input type="checkbox" name="" id="" />
-        <h1 className="font-bold text-gray-700">Olahraga</h1>
+        <h1 className="font-bold text-gray-600">Olahraga</h1>
         <div className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
