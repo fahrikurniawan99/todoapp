@@ -1,4 +1,6 @@
-const menu = () => {
+import React from "react";
+
+function menu() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,6 +20,5 @@ const menu = () => {
       <line x1={4} y1={18} x2={20} y2={18} />
     </svg>
   );
-};
-
+}
 export { menu };
