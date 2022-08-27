@@ -89,7 +89,7 @@ function Home() {
         />
         <TodoList
           todos={todos}
-          onClickDelete={handlerDelete}
+          // onClickDelete={handlerDelete}
           onClickEdit={handlerEdit}
         />
       </div>
