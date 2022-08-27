@@ -30,10 +30,12 @@ function TodoList(props) {
                   </Menu.Button>
                   <Menu.Items className="focus:outline-none absolute top-full w-32 right-0 bg-white shadow-xl rounded origin-top-right">
                     <Menu.Item className="flex text-xs py-3 px-6 hover:bg-indigo-100">
-                      <h1>Edit</h1>
+                      <h1 onClick={() => props.onClickEdit(todo)}>Edit</h1>
                     </Menu.Item>
                     <Menu.Item className="flex py-3 text-xs px-6 hover:bg-indigo-100">
-                      <h1 className="w-full" onClick={() => props.onClickDelete(todo.id)}>Hapus</h1>
+                      <h1 onClick={() => props.onClickDelete(todo.id)}>
+                        Hapus
+                      </h1>
                     </Menu.Item>
                   </Menu.Items>
                 </Menu>

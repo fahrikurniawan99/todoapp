@@ -7,6 +7,7 @@ function Home() {
   const [activity, setActiviy] = useState("");
   const [todos, setTodos] = useState([]);
   const [message, setMessage] = useState("");
+  const [edit, setEdit] = useState({});
 
   const idGenerator = () => {
     return Date.now();
@@ -15,6 +16,23 @@ function Home() {
     event.preventDefault();
     if (!activity) {
       return setMessage("*Not Todo Empty");
+    }
+    if (edit.id) {
+      // membuat todo baru sesuai value yang kita masukan
+      const updateTodo = {
+        ...edit,
+        activity: activity,
+      };
+      // cari index
+      const findIndex = todos.findIndex((todo) => {
+        return todo.id == edit.id;
+      });
+
+      //clone todos
+      const cloneTodos = [...todos];
+      cloneTodos[findIndex] = updateTodo;
+      setTodos(cloneTodos);
+      return handlerCancel();
     }
     setMessage("");
     setTodos([
@@ -31,6 +49,21 @@ function Home() {
       return todo.id !== todoId;
     });
     setTodos(filterTodos);
+    setMessage("");
+    if (edit.id) {
+      handlerCancel();
+    }
+  };
+
+  const handlerEdit = (todo) => {
+    setActiviy(todo.activity);
+    setEdit(todo);
+    setMessage("");
+  };
+
+  const handlerCancel = () => {
+    setActiviy("");
+    setEdit({});
   };
 
   return (
@@ -42,8 +75,14 @@ function Home() {
           value={activity}
           onChange={(event) => setActiviy(event.target.value)}
           message={message}
+          edit={edit}
+          onClickCancel={handlerCancel}
         />
-        <TodoList todos={todos} onClickDelete={handlerDelete} />
+        <TodoList
+          todos={todos}
+          onClickDelete={handlerDelete}
+          onClickEdit={handlerEdit}
+        />
       </div>
     </div>
   );

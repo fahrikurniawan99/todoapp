@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../atoms/Button/Button";
+import { ButtonIndigo, ButtonDanger } from "../../components/atoms/Button";
 import Input from "../atoms/Input/Input";
 
 function InputTodo(props) {
@@ -20,7 +20,16 @@ function InputTodo(props) {
             !props.message ? "mt-4" : "mt-0"
           } flex justify-center items-center`}
         >
-          <Button type="submit">Add Todo</Button>
+          <div className="flex space-x-2 justify-center first-letter:w-full">
+            <ButtonIndigo type="submit">
+              {props.edit.id ? "Save" : "Add"}
+            </ButtonIndigo>
+            {props.edit.id && (
+              <ButtonDanger onClick={() => props.onClickCancel()}>
+                Cancel
+              </ButtonDanger>
+            )}
+          </div>
         </div>
       </form>
     </>
