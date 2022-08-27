@@ -1,7 +1,5 @@
 import { Fragment } from "react";
-import MenuIcon from "../../assets/images/svg/Menu";
 import { Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
