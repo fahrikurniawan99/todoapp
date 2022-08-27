@@ -37,11 +37,11 @@ function Home() {
     <div className="container mx-auto p-1">
       <Navbar />
       <div className="mt-10">
-        {message && <h1 className="text-red-500 text-xs">{message}</h1>}
         <InputTodo
           onSubmit={handlerSubmit}
           value={activity}
           onChange={(event) => setActiviy(event.target.value)}
+          message={message}
         />
         <TodoList todos={todos} onClickDelete={handlerDelete} />
       </div>

@@ -9,8 +9,17 @@ function InputTodo(props) {
         What you Todo ?
       </h1>
       <form onSubmit={props.onSubmit}>
-        <Input onChange={props.onChange} value={props.value}/>
-        <div className="flex justify-center items-center mt-3">
+        <Input onChange={props.onChange} value={props.value} />
+        <div className="ml-4">
+          {props.message && (
+            <h1 className="text-red-500 text-xs">{props.message}</h1>
+          )}
+        </div>
+        <div
+          className={`${
+            !props.message ? "mt-4" : "mt-0"
+          } flex justify-center items-center`}
+        >
           <Button type="submit">Add Todo</Button>
         </div>
       </form>
