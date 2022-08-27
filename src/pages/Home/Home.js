@@ -14,26 +14,30 @@ function Home() {
   };
   const handlerSubmit = (event) => {
     event.preventDefault();
+    // jika user memasukan string kosong
     if (!activity) {
       return setMessage("*Not Todo Empty");
     }
-    if (edit.id) {
-      // membuat todo baru sesuai value yang kita masukan
-      const updateTodo = {
-        ...edit,
-        activity: activity,
-      };
-      // cari index
-      const findIndex = todos.findIndex((todo) => {
-        return todo.id == edit.id;
-      });
 
-      //clone todos
-      const cloneTodos = [...todos];
-      cloneTodos[findIndex] = updateTodo;
-      setTodos(cloneTodos);
-      return handlerCancel();
-    }
+    // jika edit.id ada maka lakukan
+    // if (edit.id) {
+    //   // membuat todo baru sesuai value yang kita masukan
+    //   const updateTodo = {
+    //     ...edit,
+    //     activity: activity,
+    //   };
+    //   // cari index
+    //   const findIndex = todos.findIndex((todo) => {
+    //     return todo.id == edit.id;
+    //   });
+
+    //   //clone todos
+    //   const cloneTodos = [...todos];
+    //   cloneTodos[findIndex] = updateTodo;
+    //   // set todos dengan clone todos
+    //   setTodos(cloneTodos);
+    //   return handlerCancel();
+    // }
     setMessage("");
     setTodos([
       ...todos,
@@ -44,23 +48,28 @@ function Home() {
     ]);
     setActiviy("");
   };
-  const handlerDelete = (todoId) => {
-    const filterTodos = todos.filter((todo) => {
-      return todo.id !== todoId;
-    });
-    setTodos(filterTodos);
-    setMessage("");
-    if (edit.id) {
-      handlerCancel();
-    }
-  };
 
+  // delete handler
+  // const handlerDelete = (todoId) => {
+  //   // filter todo
+  //   const filterTodos = todos.filter((todo) => {
+  //     return todo.id !== todoId;
+  //   });
+  //   setTodos(filterTodos);
+  //   setMessage("");
+  //   if (edit.id) {
+  //     handlerCancel();
+  //   }
+  // };
+
+  // handler edit
   const handlerEdit = (todo) => {
     setActiviy(todo.activity);
     setEdit(todo);
     setMessage("");
   };
 
+  // handler cancel
   const handlerCancel = () => {
     setActiviy("");
     setEdit({});
