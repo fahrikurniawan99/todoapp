@@ -24,7 +24,15 @@ function Home() {
         activity,
       },
     ]);
+    setActiviy("");
   };
+  const handlerDelete = (todoId) => {
+    const filterTodos = todos.filter((todo) => {
+      return todo.id !== todoId;
+    });
+    setTodos(filterTodos);
+  };
+
   return (
     <div className="container mx-auto p-1">
       <Navbar />
@@ -35,7 +43,7 @@ function Home() {
           value={activity}
           onChange={(event) => setActiviy(event.target.value)}
         />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onClickDelete={handlerDelete} />
       </div>
     </div>
   );
