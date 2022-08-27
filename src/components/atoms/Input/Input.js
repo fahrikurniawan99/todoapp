@@ -1,6 +1,6 @@
 import React from "react";
 
-function index(props) {
+function Input(props) {
   return (
     <input
       type="text"
@@ -10,4 +10,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default Input;

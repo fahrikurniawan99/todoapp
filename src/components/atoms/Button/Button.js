@@ -1,6 +1,6 @@
 import React from "react";
 
-function index(props) {
+function Button(props) {
   return (
     <button
       {...props}
@@ -11,4 +11,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default Button;
