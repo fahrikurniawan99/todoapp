@@ -1,4 +1,4 @@
-import { Menu } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 
 function TodoList(props) {
   return (
@@ -25,22 +25,37 @@ function TodoList(props) {
                   />
                 </div>
                 <div>
-                  <h1 className="text-lg text-gray-800">{todo.activity}</h1>
+                  <h1
+                    className={`text-lg text-gray-800 ${
+                      todo.done && "line-through"
+                    }`}
+                  >
+                    {todo.activity}
+                  </h1>
                 </div>
                 <Menu as="div" className="relative">
                   <Menu.Button className="flex items-center outline-none">
                     <img src="dots.svg" alt="" srcset="" />
                   </Menu.Button>
-                  <Menu.Items className="focus:outline-none absolute top-full w-32 right-0 bg-white shadow-xl rounded origin-top-right">
-                    <Menu.Item className="flex text-xs py-3 px-6 hover:bg-indigo-100">
-                      <h1 onClick={() => props.onClickEdit(todo)}>Edit</h1>
-                    </Menu.Item>
-                    <Menu.Item className="flex py-3 text-xs px-6 hover:bg-indigo-100">
-                      <h1 onClick={() => props.onClickDelete(todo.id)}>
-                        Hapus
-                      </h1>
-                    </Menu.Item>
-                  </Menu.Items>
+                  <Transition
+                    enter="transition-all duration-300"
+                    enterFrom="opacity-0 scale-50"
+                    enterTo="opacity-100 sclae-100"
+                    leave="transition-all duration-300"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-50"
+                  >
+                    <Menu.Items className="focus:outline-none absolute top-full w-32 right-0 bg-white shadow-xl rounded origin-top-right">
+                      <Menu.Item className="flex text-xs py-3 px-6 hover:bg-indigo-100">
+                        <h1 onClick={() => props.onClickEdit(todo)}>Edit</h1>
+                      </Menu.Item>
+                      <Menu.Item className="flex py-3 text-xs px-6 hover:bg-indigo-100">
+                        <h1 onClick={() => props.onClickDelete(todo.id)}>
+                          Hapus
+                        </h1>
+                      </Menu.Item>
+                    </Menu.Items>
+                  </Transition>
                 </Menu>
               </div>
             );
