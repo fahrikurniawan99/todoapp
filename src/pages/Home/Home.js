@@ -44,6 +44,7 @@ function Home() {
       {
         id: idGenerator(),
         activity,
+        done: false,
       },
     ]);
     setActiviy("");
@@ -75,6 +76,20 @@ function Home() {
     setEdit({});
   };
 
+  //handler Done
+  const handlerDone = (todo) => {
+    const updateTodo = {
+      ...todo,
+      done: todo.done ? false : true,
+    };
+    const findIndex = todos.findIndex((currentTodo) => {
+      return currentTodo.id == todo.id;
+    });
+    const cloneTodos = [...todos];
+    cloneTodos[findIndex] = updateTodo;
+    setTodos(cloneTodos);
+  };
+
   return (
     <div className="container mx-auto p-1">
       <Navbar />
@@ -91,6 +106,7 @@ function Home() {
           todos={todos}
           onClickDelete={handlerDelete}
           onClickEdit={handlerEdit}
+          onChangeChecklist={handlerDone}
         />
       </div>
     </div>
