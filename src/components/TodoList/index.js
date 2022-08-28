@@ -12,11 +12,11 @@ function index(props) {
           props.todos.map((todo) => {
             return (
               <div
-                className="bg-gray-100 w-full px-4 text-md py-3 flex justify-between items-start shadow-lg rounded-md"
+                className="bg-gray-100 ring-1 ring-gray-300/50 w-full px-4 text-md py-3 flex justify-between items-start shadow-lg rounded-md"
                 key={todo.id}
               >
                 <div className="space-y-3">
-                  <h1 className="text-xl font-medium text-gray-700">
+                  <h1 className="text-xl font-medium text-gray-700 first-letter:uppercase">
                     {todo.activity}
                   </h1>
                   {todo.done ? (
@@ -37,6 +37,7 @@ function index(props) {
                       id=""
                       checked={todo.done}
                       onChange={() => props.onChangeChecklist(todo)}
+                      className="focus:outline-indigo-300"
                     />
                   </div>
                   <MenuAction
