@@ -49,6 +49,7 @@ function TodoList(props) {
                       <Menu.Item className="flex text-xs py-3 px-6 hover:bg-indigo-100">
                         <h1 onClick={() => props.onClickEdit(todo)}>Edit</h1>
                       </Menu.Item>
+                      <hr />
                       <Menu.Item className="flex py-3 text-xs px-6 hover:bg-indigo-100">
                         <h1 onClick={() => props.onClickDelete(todo.id)}>
                           Hapus
