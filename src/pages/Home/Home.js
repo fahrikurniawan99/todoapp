@@ -1,6 +1,6 @@
 import Navbar from "../../components/Navbar/Navbar";
 import InputTodo from "../../components/InputTodo/InputTodo";
-import TodoList from "../../components/TodoList/TodoList";
+import TodoList from "../../components/TodoList";
 import { useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -104,22 +104,31 @@ function Home() {
     <>
       <div className="container mx-auto p-1 mb-8">
         <Navbar onClick={handlerClearTodo} />
-        <div className="mt-20">
-          <InputTodo
-            onSubmit={handlerSubmit}
-            value={activity}
-            onChange={(event) => setActiviy(event.target.value)}
-            message={message}
-            edit={edit}
-            onClickCancel={handlerCancel}
-          />
-          <TodoList
-            todos={todos}
-            onClickDelete={handlerDelete}
-            onClickEdit={handlerEdit}
-            onChangeChecklist={handlerDone}
-            isOpen={isOpen}
-          />
+        <div className="mt-20 lg:flex-row flex flex-col items-center justify-between space-y-10 md:space-y-0">
+          <div className="">
+            <img
+              src="social.svg"
+              alt=""
+              className="lg:max-w-2xl drop-shadow-xl"
+            />
+          </div>
+          <div className="lg:flex-1 lg:pl-10">
+            <InputTodo
+              onSubmit={handlerSubmit}
+              value={activity}
+              onChange={(event) => setActiviy(event.target.value)}
+              message={message}
+              edit={edit}
+              onClickCancel={handlerCancel}
+            />
+            <TodoList
+              todos={todos}
+              onClickDelete={handlerDelete}
+              onClickEdit={handlerEdit}
+              onChangeChecklist={handlerDone}
+              isOpen={isOpen}
+            />
+          </div>
         </div>
       </div>
       <Transition
@@ -136,7 +145,7 @@ function Home() {
           onClose={() => setIsOpen(false)}
         >
           <Dialog.Overlay className="fixed inset-0 bg-black/50" />
-          <div className="bg-white p-8 rounded z-50 shadow-xl mx-3 fixed top-1/3 right-7">
+          <div className="bg-white p-8 rounded z-50 shadow-xl mx-3 fixed top-1/3 right-7 lg:right-2/4 lg:top-1/4 lg:translate-x-2/4 lg:translate-y-2/4">
             <Dialog.Panel>
               <Dialog.Title className="font-bold">
                 Successfully Deleted
@@ -154,11 +163,6 @@ function Home() {
           </div>
         </Dialog>
       </Transition>
-      <div className="bg-red-200 rounded px-1 cursor-pointer absolute bottom-10 right-0">
-        <h1 className="text-red-500 text-sm" onClick={() => handlerClearTodo()}>
-          Clear Todo
-        </h1>
-      </div>
     </>
   );
 }
