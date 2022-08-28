@@ -63,9 +63,7 @@ function Home() {
     setTodos(filterTodos);
     setMessage("");
     setIsOpen(true);
-    if (edit.id) {
-      handlerCancel();
-    }
+    handlerCancel();
   };
 
   // handler edit
@@ -105,14 +103,14 @@ function Home() {
       <div className="container mx-auto p-1 mb-8">
         <Navbar onClick={handlerClearTodo} />
         <div className="mt-20 lg:flex-row flex flex-col items-center justify-between space-y-10 md:space-y-0">
-          <div className="">
+          <div className="-z-20">
             <img
               src="social.svg"
               alt=""
               className="lg:max-w-2xl drop-shadow-xl"
             />
           </div>
-          <div className="lg:flex-1 lg:pl-10">
+          <div className="lg:flex-1 lg:pl-10 w-full">
             <InputTodo
               onSubmit={handlerSubmit}
               value={activity}
